@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec npm start"
+    "scripts": {
+    "start": "nodemon app.js"
+  }
   },
   "keywords": [
     "routing",
