@@ -1,0 +1,87 @@
+<%- include('includes/head.ejs') %>
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-8 padding_0">
+              <div class="banner_img"><img src="images/banner-img.png"></div>
+            </div>
+            <div class="col-sm-4">
+              <h1 class="clever_text">Tüm <span style="color: #212122;">Duyurularını</span> Takip Et</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <input type="text" id="searchInput" placeholder="Kelime ile ara..." onkeyup="searchTable()" />
+      <div class="table-responsive">
+        <table class="table" id="myTable">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Duyuru Başlığı</th>
+                <th>Başlama Tarihi</th>
+                <th>Bitiş Tarihi</th>
+                <th>Kategori</th>
+                <th>Öncelik</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% if(nots.length>0) {%>
+            <%  let sayi1=1; %>
+            <% for(let not of nots) {%>    
+            <tr>
+                <th scope="row"><%=sayi1 %></th>
+                <td><%=not.name %></td>
+                <td><%=not.startDate %></td>
+                <td><%=not.finishDate %></td>
+                <td><%=not.category %></td>
+                <td><%=not.priority %></td>
+                <td>
+                   
+                    <form action="not-sil" method="post">
+                    <a href="not-detay/<%=not._id %>" class="btn btn-outline-info btn-icon"><i class="ai-show">İncele</i></a>
+                    <input type="hidden" name="notId" value="<%=not._id %>">
+                    <% if(yonetici) {%>
+                    <button type="submit" class="btn btn-outline-danger btn-icon" value="1"> 
+                        <i class="ai-trash">Sil</i>
+                    </button>
+                    <% } %>
+                     </form>
+                </td>
+            </tr>
+             <% sayi1++; } %>
+            <% }else { %>
+            <tr>
+                <td colspan="6" style="text-align:center; background-color: rgba(255,0,0,0.2);">Ürün Yok!</td>
+            </tr>
+    
+            <% } %>
+            </tbody>
+        </table>
+        </div>
+
+        <script>
+          function searchTable() {
+            var input, filter, table, tr, td, i, j, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+          
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td");
+              for (j = 0; j < td.length; j++) {
+                txtValue = td[j].textContent || td[j].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                  break; // Arama eşleştiği için iç döngüden çık
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+          </script>
+      <!-- banner section end -->
+      <%- include('includes/foot.ejs') %>

@@ -1,0 +1,31 @@
+<%- include('includes/head.ejs') %>
+      <!-- News section start -->
+      <div class="news_section layout_padding">
+        <div class="container">
+          <div class="d-flex  justify-content-center">
+            <h1 class="services_text custom_main">Duyuru Ekle</h1>
+          </div>
+        </div>
+      </div>
+      <div class="news_section_2 layout_padding">
+        <div class="w-100 mt-auto" style="max-width: 526px;">
+          <form class="needs-validation" novalidate="" method="post" action="/not-ekle">
+            <div class="pb-3 mb-3">
+              <div class="position-relative"><i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                <input class="form-control form-control-lg ps-5" type="text" placeholder="Duyuru Başlığı" name="name" required>
+                <input class="form-control form-control-lg ps-5" type="text" placeholder="Duyuru İçeriği" name="context" required>
+                <input class="form-control form-control-lg ps-5" type="text" placeholder="Oluşturulma Tarihi" name="startDate" required>
+                <input class="form-control form-control-lg ps-5" type="text" placeholder="Bitiş Tarihi" name="finishDate" required>
+                <input class="form-control form-control-lg ps-5" type="text" placeholder="Kategori" name="category" required>
+                <input class="form-control form-control-lg ps-5" type="text" placeholder="Öncelik" name="priority" required>
+              </div>
+              <div class="d-flex justify-content-end pt-3">
+                <button class="btn btn-primary ms-3" type="submit" value="1">Kaydet</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- News section end -->
+
+      <%- include('includes/foot.ejs') %>

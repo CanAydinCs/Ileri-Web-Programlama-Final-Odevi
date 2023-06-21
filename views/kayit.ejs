@@ -1,0 +1,23 @@
+﻿<%- include('includes/head.ejs') %>
+        <!-- Sign in form-->
+        <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5">
+          <div class="w-100 mt-auto" style="max-width: 526px;">
+            <h1>Kayıt Yap</h1>
+            <form class="needs-validation" novalidate="" method="post" action="/kayit">
+              <div class="pb-3 mb-3">
+                <div class="position-relative"><i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <input class="form-control form-control-lg ps-5" type="email" placeholder="Eposta Adresiniz" name="eposta" required>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="position-relative"><i class="ai-lock-closed fs-lg position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <div class="password-toggle">
+                    <input class="form-control form-control-lg ps-5" type="password" name="sifre" placeholder="Şifre" required="required">
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-lg btn-warning w-100 mb-4" type="submit" name="kayit" value="1">Kayıt Yap</button>
+            
+            </form>
+          </div>
+          <%- include('includes/foot.ejs') %>
